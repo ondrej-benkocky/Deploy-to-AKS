@@ -52,15 +52,15 @@ stages:
         artifactName: 'manifests'
         targetPath: '$(Pipeline.Workspace)/manifests'
 
-- task: KubernetesManifest@1
-  inputs:
-    action: 'createSecret'
-    connectionType: 'kubernetesServiceConnection'
-    kubernetesServiceConnection: 'Neit'
-    namespace: 'testneit'
-    secretType: 'dockerRegistry'
-    secretName: '$(acrsecret)'
-    dockerRegistryEndpoint: 'azureneit'
+    - task: KubernetesManifest@1
+      inputs:
+        action: 'createSecret'
+        connectionType: 'kubernetesServiceConnection'
+        kubernetesServiceConnection: 'Neit'
+        namespace: 'testneit'
+        secretType: 'dockerRegistry'
+        secretName: '$(acrsecret)'
+        dockerRegistryEndpoint: 'azureneit'
 
 #ACR secret handling
     - task: KubernetesManifest@1
